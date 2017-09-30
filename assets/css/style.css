@@ -15,20 +15,19 @@ html{
 	position:relative;
 }
 
+
+/*make room for footer*/
 body {
 	margin-bottom:98px;
 }
 
-
-#main-container {
-	/*background-color:green;*/
-}
-
+/*set max width just to match to original specs*/
 .container {
 	max-width:960px;
+	width:100%;
 }
 
-
+/*overriding bootstrap...will avoid in the future*/
 .navbar-default {
 	background-color:white;
 	margin-bottom:0px;
@@ -36,7 +35,7 @@ body {
 	
 }
 
-/*.nav li a {*/
+
 .navbar-default .navbar-nav>li>a{
 	height:14px;
 	line-height: 14px;
@@ -58,23 +57,30 @@ body {
     font-size: 30px;
     line-height: 90px;
     background-color:#4aaaa5;
-    margin-left:0px !important;
+    margin-left:0px;
     font-weight:600;
+}
+
+/*bootstrap default is to turn background white (no good on white text)*/
+.navbar-default .navbar-brand:hover {
+    background-color: #4aaaa5;
+    
 }
 
 .navbar-brand,h1,h2,h3{
 	font-family:'Georgia', Times, 'Times New Roman', serif;
 }
 
-/*div.portfolio-image:nth-child(n+3)*/ 
-div.portfolio-image:nth-of-type(n+3) {
-	margin-top:30px;
 
+/*.portfolio-panel:nth-child(n+3) {
+	margin-top:30px; }*/
+
+/*gave up after dozens of tries to get nth child, nth of type to work. will try in future.
+this class gives top padding to all portfolio rows after the first one*/
+.row2 {
+	padding-top:30px;
 }
 
-/*[class*="col-"]{
-	border:1px solid black;
-}*/
 
 .panel {
 	border:1px #dddddd solid;
@@ -83,6 +89,7 @@ div.portfolio-image:nth-of-type(n+3) {
 	margin-top:30px;
 
 }
+
 
 #aboutMeImage{
 	float:left;
@@ -100,6 +107,7 @@ div.portfolio-image:nth-of-type(n+3) {
 	position:relative;
 }
 
+/*absolute positioning to overlay image*/
 .portfolio-banner{
 	background-color:#4aaaa5;
 	color:white;
@@ -112,6 +120,7 @@ div.portfolio-image:nth-of-type(n+3) {
 	text-align:center;
 	padding:20px 0;
 	line-height:0;
+	max-width:270px;
 }
 
 .panel>.panel-heading{
@@ -127,6 +136,9 @@ div.portfolio-image:nth-of-type(n+3) {
     color: #4aaaa5;
 }
 
+
+/*on homework one I calculated the pixels...this is way easier.  this switches to float left when it moves to full
+screen width*/
 #connect-links {
   	display: flex;
 	justify-content:space-between;
@@ -134,7 +146,6 @@ div.portfolio-image:nth-of-type(n+3) {
 
 
 footer {
-    /*clear: both;*/
     background-color: #666666;
     border-top: 8px #4aaaa5 solid;
     height: 90px;
@@ -145,6 +156,9 @@ footer {
     bottom:0;
 
 }
+
+/*having a heck of a time with vertical text centering - is line-height the typical way to do it?
+seems to be most effective way. */
 .footer .container {
 	height:100%;
 	line-height:70px;
@@ -153,7 +167,15 @@ footer {
 	display:inline-block;
 	vertical-align:middle;
 }
-/*// Large devices (desktops, 992px and up)*/
+
+#message {
+	resize:vertical;
+}
+
+/*Certainly could have avoided these media queries more (and will next time), but for 
+the most part I was able to avoid using them for column widths and let bootstrap do 
+that part. Got lazy on the navbar, should utilize bootstrap grid for that*/ 
+
 @media (max-width: 991px) { 
 	
 
@@ -171,7 +193,7 @@ footer {
 
 }
 
-/*// Medium devices (tablets, 768px and up)*/
+
 @media (max-width: 767px) { 
 	#connect-text {
 		font-size:24px;
@@ -215,7 +237,6 @@ footer {
 
 
 
-// Small devices (landscape phones, 576px and up)*/
 @media (max-width: 575px) { 
 
 
